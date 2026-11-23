@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Знание — портал науки и повседневных советов</title>
+<meta name="description" content="Знание — образовательный портал: наука, психология, финансы, здоровье, техника, история и полезные советы на каждый день.">
+<style>
+:root{
+  --bg:#f7f8fb; --card:#ffffff; --ink:#1c2333; --muted:#5b6577;
+  --accent:#2f6fed; --accent2:#7c3aed; --line:#e4e8f0; --ok:#16a34a;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+header{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 1px 8px rgba(0,0,0,.05)}
+.wrap{max-width:1180px;margin:0 auto;padding:0 18px}
+.topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:12px 0}
+.logo{font-size:22px;font-weight:800;letter-spacing:-.5px;text-decoration:none;color:var(--ink)}
+.logo span{color:var(--accent)}
+nav a{margin-right:14px;text-decoration:none;color:var(--muted);font-size:14.5px;font-weight:600}
+nav a:hover{color:var(--accent)}
+.search{display:flex;gap:8px}
+.search input{padding:9px 12px;border:1px solid var(--line);border-radius:10px;width:230px;font-size:14px}
+.search button{padding:9px 16px;border:0;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+.hero{background:linear-gradient(120deg,#1e3a8a,#2f6fed 55%,#7c3aed);color:#fff;padding:52px 0;text-align:center}
+.hero h1{font-size:34px;margin-bottom:10px}
+.hero p{max-width:640px;margin:0 auto 20px;opacity:.92}
+.btn{display:inline-block;padding:12px 26px;border-radius:12px;background:#fff;color:#1e3a8a;font-weight:700;text-decoration:none;margin:4px}
+.btn.out{background:transparent;border:2px solid #fff;color:#fff}
+.ad-banner{background:repeating-linear-gradient(45deg,#eef1f7,#eef1f7 12px,#e7ebf3 12px,#e7ebf3 24px);border:1px dashed #b9c3d6;border-radius:12px;color:#7a8699;display:flex;align-items:center;justify-content:center;font-size:13px;letter-spacing:1px;text-transform:uppercase;margin:26px 0}
+.ad-banner.leader{height:110px;font-weight:700}
+main{padding:30px 0 60px}
+section{margin-bottom:56px}
+h2.sec{font-size:26px;margin-bottom:6px}
+.sub{color:var(--muted);margin-bottom:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;transition:.2s;box-shadow:0 1px 4px rgba(20,30,60,.04)}
+.card:hover{transform:translateY(-3px);box-shadow:0 8px 22px rgba(20,30,60,.10)}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 10px;border-radius:20px;margin-bottom:10px}
+.tag.sc{background:#e0ecff;color:#1d4ed8}.tag.life{background:#e9f9ef;color:#15803d}.tag.money{background:#fdf1dc;color:#b45309}
+.card h3{font-size:18px;margin-bottom:8px}
+.card p{color:var(--muted);font-size:14.5px}
+.card a{color:var(--accent);text-decoration:none;font-weight:700;font-size:14px}
+.cols{display:grid;grid-template-columns:2.2fr 1fr;gap:26px}
+@media(max-width:900px){.cols{grid-template-columns:1fr}.search input{width:150px}}
+article.long{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px;margin-bottom:22px}
+article.long h3{font-size:21px;margin-bottom:12px}
+article.long h4{margin:16px 0 8px}
+article.long ul{margin:8px 0 8px 22px}
+article.long p{margin-bottom:10px;color:#334155}
+.sidebar .ad{height:400px;margin-bottom:20px}
+.policy{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px;max-width:900px}
+.policy h2{margin:22px 0 10px}
+.policy ul{margin:8px 0 8px 22px}
+.policy p{margin-bottom:12px;color:#334155}
+footer{background:#101828;color:#98a2b3;padding:40px 0;font-size:14px}
+footer a{color:#cbd5e1;text-decoration:none;margin-right:16px}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center}
+.cookie{position:fixed;bottom:0;left:0;right:0;background:#101828;color:#fff;padding:14px;display:flex;gap:14px;align-items:center;justify-content:center;z-index:99;font-size:14px}
+.cookie button{padding:8px 18px;border:0;border-radius:8px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
+.hidden{display:none!important}
+.dark{--bg:#0f1420;--card:#171e2e;--ink:#e7ecf5;--muted:#9aa7bd;--line:#2a3448}
+.dark header{background:#171e2e}
+.mode{background:none;border:1px solid var(--line);border-radius:8px;padding:7px 10px;cursor:pointer}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <a class="logo" href="#top">Зна<span>ние</span>.info</a>
+    <nav>
+      <a href="#science">Наука</a>
+      <a href="#life">Повседневное</a>
+      <a href="#money">Деньги</a>
+      <a href="#health">Здоровье</a>
+      <a href="#tech">Техника</a>
+      <a href="#history">История</a>
+      <a href="#policy">Конфиденциальность</a>
+    </nav>
+    <div class="search">
+      <input id="q" type="text" placeholder="Поиск по статьям…">
+      <button onclick="doSearch()">Найти</button>
+      <button class="mode" onclick="toggleMode()" title="Тёмная тема">◐</button>
+    </div>
+  </div>
+</header>
+
+<div class="hero" id="top">
+  <h1>Знание.info — наука и жизнь в одном месте</h1>
+  <p>Более 30 материалов по астрономии, физике, биологии, психологии, финансам, здоровью, кулинарии и технике. Читайте, применяйте, развивайтесь — бесплатно.</p>
+  <a class="btn" href="#science">Начать с науки</a>
+  <a class="btn out" href="#life">Советы на каждый день</a>
+</div>
+
+<div class="wrap">
+  <div class="ad-banner leader" id="top-ad">Рекламный баннер 970×110 — место под Google AdSense / Яндекс.РСЯ</div>
+</div>
+
+<main class="wrap">
+  <div class="cols">
+    <div>
+
+    <!-- НАУКА -->
+    <section id="science">
+      <h2 class="sec">🔬 Наука</h2>
+      <p class="sub">Популярно о сложном: космос, физика, биология, химия и психология.</p>
+      <div class="grid">
+        <div class="card sc" data-title="чёрные дыры астрономия космос"><span class="tag sc">Астрономия</span><h3>Что такое чёрные дыры</h3><p>Области пространства, где гравитация так сильна, что даже свет не может её покинуть. Как они образуются, что такое горизонт событий и почему вокруг них искривляется время.</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="теория относительности эйнштейн физика"><span class="tag sc">Физика</span><h3>Теория относительности простыми словами</h3><p>Почему время идёт по-разному для тех, кто движется с разной скоростью, и как Эйнштейн изменил наше представление о Вселенной — без формул и матанализа.</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="квантовая физика суперпозиция"><span class="tag sc">Физика</span><h3>Квантовая физика для начинающих</h3><p>Суперпозиция, запутанность и принцип неопределённости Гейзенберга. Почему квантовый мир не похож на привычный и зачем это нужно в компьютерах.</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="днк генетика гены наследственность"><span class="tag sc">Биология</span><h3>ДНК: инструкция жизни</h3><p>Из чего состоит ДНК, как кодируются гены, что такое мутации и как наследуются признаки. И почему у нас 46 хромосом, а у кукурузы — 20.</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="мозг нейроны нейропластичность"><span class="tag sc">Психология</span><h3>Как работает мозг</h3><p>86 миллиардов нейронов, нейропластичность и почему мозг «съедает» 20% всей энергии тела. Что происходит с нами, когда мы учимся новому.</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="периодическая таблица химия элементы менделеев"><span class="tag sc">Химия</span><h3>Таблица Менделеева: путеводитель</h3><p>Как читать таблицу, зачем нужны периоды и группы, почему галогены агрессивны, а благородные газы — нет. История элементов, названных в честь России.</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="климат изменение экология парниковый эффект"><span class="tag sc">Экология</span><h3>Климат и парниковый эффект</h3><p>Как устроен парниковый эффект, чем он отличается от разрушения озонового слоя и что показывают измерения CO₂ за последние 60 лет.</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="математика статистика вероятность"><span class="tag sc">Математика</span><h3>Вероятность в жизни</h3><p>Парадокс дней рождения, ложные корреляции и ошибки выжившего. Как элементарная статистика защищает от манипуляций в рекламе и новостях.</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="искусственный интеллект ии нейросети"><span class="tag sc">Информатика</span><h3>Как учат нейросети</h3><p>Что такое машинное обучение, зачем нейросети миллионы примеров и почему искусственный интеллект иногда «галлюцинирует».</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="космос планеты солнечная система"><span class="tag sc">Астрономия</span><h3>Тайны Солнечной системы</h3><p>Вулканы на Венере, метановые озёра Титана и океан подо льдом Европы. Самые удивительные факты о соседях Земли.</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="микробиом бактерии кишечник"><span class="tag sc">Биология</span><h3>Микробиом человека</h3><p>В нашем кишечнике живут триллионы бактерий, влияющих на настроение, иммунитет и вес. Что наука знает о «втором мозге».</p><a href="#">Читать статью →</a></div>
+        <div class="card sc" data-title="гравитация тёмная материя космология"><span class="tag sc">Физика</span><h3>Тёмная материя и энергия</h3><p>95% Вселенной состоит из того, что мы пока не можем увидеть. Как учёные ищут тёмную материю и что уже понятно о её природе.</p><a href="#">Читать статью →</a></div>
+      </div>
+    </section>
+
+    <div class="ad-banner" style="height:90px">Рекламный блок 728×90 — между разделами</div>
+
+    <!-- ПОВСЕДНЕВНОЕ -->
+    <section id="life">
+      <h2 class="sec">🏠 Повседневная жизнь</h2>
+      <p class="sub">Практичные советы: быт, кухня, продуктивность и отношения.</p>
+      <div class="grid">
+        <div class="card life" data-title="продуктивность тайм-менеджмент планирование"><span class="tag life">Продуктивность</span><h3>Метод «помидора»</h3><p>25 минут работы — 5 минут отдыха. Почему короткие спринты повышают концентрацию и как внедрить технику за один день.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="уборка быт порядок дом"><span class="tag life">Быт</span><h3>Уборка без надрыва</h3><p>Правило «15 минут в день», схема зон и лайфхаки с содой и уксусом, которые реально работают. Проверенный план уборки квартиры.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="кулинария готовка рецепты кухня"><span class="tag life">Кулинария</span><h3>5 ужинов из 3 ингредиентов</h3><p>Паста с чесноком, курица в фольге, ленивые вареники и ещё простые блюда, которые готовятся быстрее доставки пиццы.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="сон режим восстановление"><span class="tag life">Здоровье</span><h3>Как наладить сон</h3><p>Почему экран телефона вредит засыпанию, сколько на самом деле нужно спать и как за неделю перестроить свой график.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="память обучение запоминание"><span class="tag life">Обучение</span><h3>Техники запоминания</h3><p>Интервальные повторения, дворец памяти и активное воспоминание. Учёба быстрее в 2–3 раза — без заучивания наизусть.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="путешествия чемодан сборы"><span class="tag life">Путешествия</span><h3>Собрать чемодан за 20 минут</h3><p>Чек-лист из 30 пунктов, правило скрутки и что обязательно взять в ручную кладь. Больше не забудете зарядку.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="растения уход комнатные цветы"><span class="tag life">Дом и сад</span><h3>Комнатные растения для новичков</h3><p>Пять растений, которые почти невозможно загубить: как часто поливать, куда ставить и что делать при пожелтевших листьях.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="общение конфликт психология коммуникация"><span class="tag life">Психология</span><h3>Как спорить без скандала</h3><p>Техника «я-высказываний», пауза 10 секунд и правило одного вопроса. Конфликты, после которых отношения становятся крепче.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="автомобиль вождение советы"><span class="tag life">Транспорт</span><h3>Зимой за рулём</h3><p>Как готовить машину к морозам, почему нельзя резко тормозить на льду и что держать в багажнике на всякий случай.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="деньги накопления бюджет экономия"><span class="tag life">Финансы</span><h3>Бюджет по правилу 50/30/20</h3><p>50% на необходимое, 30% на желания, 20% на сбережения. Как разложить зарплату по конвертам и не обидеть себя.</p><a href="#">Читать статью →</a></div>
+      </div>
+    </section>
+
+    <!-- ДЕНЬГИ -->
+    <section id="money">
+      <h2 class="sec">💰 Деньги и карьера</h2>
+      <p class="sub">Личные финансы, инвестиции для начинающих и профессиональный рост.</p>
+      <div class="grid">
+        <div class="card money" data-title="инвестиции акции облигации"><span class="tag money">Инвестиции</span><h3>Инвестиции с нуля</h3><p>Чем акции отличаются от облигаций, зачем нужен портфель и почему начинать стоит не с криптовалюты, а с подушки безопасности.</p><a href="#">Читать статью →</a></div>
+        <div class="card money" data-title="фриланс подработка доход"><span class="tag money">Карьера</span><h3>Фриланс: с чего начать</h3><p>Как упаковать первое портфолио, где искать заказы, что писать в откликах и как не работать бесплатно.</p><a href="#">Читать статью →</a></div>
+        <div class="card money" data-title="кредит ипотека процентная ставка"><span class="tag money">Финансы</span><h3>Кредиты без боли</h3><p>Как читать кредитный договор, что такое полная стоимость кредита и почему минимальный платёж по карте — ловушка.</p><a href="#">Читать статью →</a></div>
+        <div class="card money" data-title="резюме собеседование работа"><span class="tag money">Карьера</span><h3>Резюме, которое читают</h3><p>Один экран, конкретные цифры и ключевые слова вакансии. Как пройти отбор на первом этапе и что говорить на собеседовании.</p><a href="#">Читать статью →</a></div>
+        <div class="card money" data-title="налоги вычет налоговый"><span class="tag money">Финансы</span><h3>Налоговые вычеты</h3><p>За обучение, лечение и покупку жилья государство возвращает часть налогов. Кто имеет право и какие документы нужны.</p><a href="#">Читать статью →</a></div>
+        <div class="card money" data-title="финансовая грамотность накопления"><span class="tag money">Финансы</span><h3>Подушка безопасности</h3><p>Сколько откладывать, где хранить и почему счёт для подушки не должен совпадать со счётом для зарплаты.</p><a href="#">Читать статью →</a></div>
+      </div>
+    </section>
+
+    <!-- ЗДОРОВЬЕ -->
+    <section id="health">
+      <h2 class="sec">🫀 Здоровье</h2>
+      <p class="sub">Научно обоснованные советы. Информация не заменяет консультацию врача.</p>
+      <div class="grid">
+        <div class="card life" data-title="спорт тренировки упражнения"><span class="tag life">Фитнес</span><h3>Тренировки дома</h3><p>Программа из 6 упражнений без оборудования: приседания, отжимания, планка. Как прогрессировать без риска травм.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="питание белки жиры углеводы"><span class="tag life">Питание</span><h3>БЖУ простым языком</h3><p>Зачем организму белок, что делают жиры и как не бояться углеводов. Составляем сбалансированную тарелку без калькулятора.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="стресс тревожность нервная система"><span class="tag life">Психология</span><h3>Стресс и его управление</h3><p>Что происходит с телом при стрессе, зачем нужна диафрагмальная гимнастика и когда стоит задуматься о специалисте.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="осанка спина позвоночник"><span class="tag life">Здоровье</span><h3>Спина у компьютера</h3><p>Правило 20-20-20 для глаз, разминка каждые 50 минут и правильная высота монитора. Забота о себе в офисе и на удалёнке.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="витамины иммунитет"><span class="tag life">Питание</span><h3>Витамины: мифы и факты</h3><p>Кому действительно нужен витамин D, как распознать дефицит железа и почему «дозняк» мультивитаминов не заменяет питание.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="первая помощь неотложка"><span class="tag life">Безопасность</span><h3>Первая помощь</h3><p>Алгоритмы при ожоге, обморожении, кровотечении и потере сознания. Базовые знания, которые может понадобиться применить в любой момент.</p><a href="#">Читать статью →</a></div>
+      </div>
+    </section>
+
+    <!-- ТЕХНИКА -->
+    <section id="tech">
+      <h2 class="sec">💻 Техника и интернет</h2>
+      <p class="sub">Как пользоваться устройствами безопасно и эффективно.</p>
+      <div class="grid">
+        <div class="card life" data-title="кибербезопасность пароли фишинг"><span class="tag life">Безопасность</span><h3>Кибергигиена</h3><p>Менеджер паролей, двухфакторная аутентификация и как отличить фишинговое письмо. Защита аккаунтов за один вечер.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="смартфон настройки android"><span class="tag life">Гаджеты</span><h3>Настроить смартфон по уму</h3><p>Автообновления, резервные копии, контроль разрешений приложений и тайные жесты, о которых вы не знали.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="искусственный интеллект ии помощь"><span class="tag life">Технологии</span><h3>ИИ в быту</h3><p>Как нейросети помогают писать тексты, редактировать фото и изучать языки — и где их стоит проверять головой.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="компьютер ускорение оптимизация"><span class="tag life">Гаджеты</span><h3>Почему тормозит компьютер</h3><p>Автозагрузка, перегрев, забитый SSD — три главные причины медлительности и пошаговый план «воскрешения».</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="умный дом техника"><span class="tag life">Технологии</span><h3>Умный дом без ипотеки</h3><p>С чего начать: умная лампа, датчик утечки воды или колонка? Разбираем, что реально удобно, а что — маркетинг.</p><a href="#">Читать статью →</a></div>
+      </div>
+    </section>
+
+    <!-- ИСТОРИЯ -->
+    <section id="history">
+      <h2 class="sec">🏛 История и культура</h2>
+      <p class="sub">Прошлое, которое объясняет настоящее.</p>
+      <div class="grid">
+        <div class="card life" data-title="древние цивилизации египет рим"><span class="tag life">История</span><h3>Древние цивилизации</h3><p>Что общего у Египта, Рима и Китая: дороги, законы, канализация. Почему одни империи пали, а другие оставили след навсегда.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="язык русский слова этимология"><span class="tag life">Лингвистика</span><h3>Откуда берутся слова</h3><p>Этимология привычных выражений: почему «тревога» связана со «враном», а «баланс» — с весами. Язык как архив истории.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="искусство живопись музеи"><span class="tag life">Культура</span><h3>Как смотреть картины</h3><p>Композиция, цвет, линия — о чём говорит живопись тем, кто умеет смотреть. Начните с «Девочки с персиками».</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="изобретения технологии история"><span class="tag life">История</span><h3>Изобретения, изменившие мир</h3><p>Печатный станок, антибиотики, транзистор. Истории за кадром: кто, когда и почему случайно (или нет) изменил всё.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="книги литература чтение"><span class="tag life">Культура</span><h3>Что читать в 2026</h3><p>Классика, которая читается как детектив, и современные нон-фикшены, после которых хочется менять привычки.</p><a href="#">Читать статью →</a></div>
+        <div class="card life" data-title="мифы легенды мифология"><span class="tag life">Культура</span><h3>Мифы народов мира</h3><p>Что скандинавский Ёрмунганд, греческий Аид и китайский Цзянцзы рассказывают о страхах и надеждах людей.</p><a href="#">Читать статью →</a></div>
+      </div>
+    </section>
+
+    <div class="ad-banner" style="height:90px">Рекламный блок — нативное размещение</div>
+
+    <!-- ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ -->
+    <section id="policy">
+      <div class="policy">
+        <h2 class="sec" style="margin-top:0">🔒 Политика конфиденциальности</h2>
+        <p class="sub">Редакция от 23 ноября 2026 года. Действует для сайта knowledge-info.example.</p>
+        <h3>1. Общие положения</h3>
+        <p>Настоящая Политика конфиденциальности определяет порядок сбора, хранения, использования и защиты информации, которую сайт «Знание.info» (далее — Сайт) получает от Пользователя при посещении Сайта и использовании его функций. Оператором персональных данных является администрация Сайта.</p>
+        <h3>2. Какие данные мы собираем</h3>
+        <ul>
+          <li><b>Технические данные:</b> IP-адрес, тип и версия браузера, тип устройства, операционная система, время посещения, источник перехода.</li>
+          <li><b>Данные о поведении:</b> просмотренные страницы, время на странице, поисковые запросы по Сайту.</li>
+          <li><b>Данные, которые Вы предоставляете добровольно:</b> адрес электронной почты при подписке на рассылку, имя и текст при отправке отзыва или обращения через форму обратной связи.</li>
+          <li><b>Файлы cookie:</b> небольшие текстовые файлы, сохраняемые браузером для сохранения Ваших настроек (например, выбранной темы оформления) и для аналитики.</li>
+        </ul>
+        <p>Сайт не собирает и не хранит паспортные данные, номера банковских карт и иные категории специальных персональных данных.</p>
+        <h3>3. Цели обработки данных</h3>
+        <ul>
+          <li>Обеспечение корректной работы Сайта и его разделов;</li>
+          <li>анонимная статистика посещаемости для улучшения материалов;</li>
+          <li>запоминание настроек Пользователя (тема оформления, принятые условия);</li>
+          <li>отправка информационных писем только при наличии согласия Пользователя;</li>
+          <li>показ релевантной рекламы от рекламных сетей (см. п. 6).</li>
+        </ul>
+        <h3>4. Правовые основания</h3>
+        <p>Обработка осуществляется на основании: согласия Пользователя (пункт 1 ч. 1 ст. 6 Федерального закона от 27.07.2006 № 152-ФЗ «О персональных данных»), а также в целях исполнения требований законодательства Российской Федерации.</p>
+        <h3>5. Cookie и аналитика</h3>
+        <p>Сайт использует cookie двух категорий: <b>обязательные</b> (необходимы для работы интерфейса, например тёмной темы) и <b>аналитические/рекламные</b> (передаются сервисам аналитики и рекламным сетям в обезличенном виде). Вы можете в любой момент очистить cookie в настройках браузера или запретить их сохранение; при этом часть функций Сайта может работать некорректно.</p>
+        <h3>6. Реклама и сторонние сервисы</h3>
+        <p>Для финансирования бесплатного контента Сайт размещает рекламу через сторонние сети (например, Яндекс.РСЯ и/или Google AdSense). Эти сервисы могут устанавливать собственные cookie и использовать обезличенные данные для подбора объявлений. Правила обработки данных рекламных сетей приведены в их собственных политиках конфиденциальности. Сайт не передаёт рекламным сетям Ваши имя и адрес электронной почты.</p>
+        <h3>7. Передача данных третьим лицам</h3>
+        <p>Мы не продаём и не передаём Ваши персональные данные третьим лицам, за исключением: хостинг-провайдера (техническое хранение), сервисов аналитики и рекламы в обезличенном виде, а также случаев, прямо предусмотренных законом или запросом уполномоченных органов.</p>
+        <h3>8. Хранение и защита данных</h3>
+        <p>Данные хранятся не дольше, чем этого требуют цели обработки, и не более 3 лет с момента последнего посещения (для обезличенной аналитики). Мы применяем организационные и технические меры защиты: шифрование канала (HTTPS), ограничение доступа сотрудников, регулярный аудит систем.</p>
+        <h3>9. Права Пользователя</h3>
+        <ul>
+          <li>получать информацию о наличии и составе обрабатываемых данных;</li>
+          <li>требовать уточнения, блокирования или удаления данных;</li>
+          <li>отозвать согласие на рассылку в любой момент по ссылке в письме;</li>
+          <li>обжаловать действия оператора в Роскомнадзоре.</li>
+        </ul>
+        <p>Для реализации прав направьте запрос на адрес privacy@knowledge-info.example. Ответ предоставляется в течение 10 рабочих дней.</p>
+        <h3>10. Дети</h3>
+        <p>Сайт не предназначен для сбора данных лиц младше 14 лет. Если такие данные попали к нам случайно, мы удалим их по первому запросу законного представителя.</p>
+        <h3>11. Изменения политики</h3>
+        <p>Мы можем обновлять Политику. Актуальная редакция всегда доступна на этой странице; дата изменения указана в начале документа. Существенные изменения публикуются не менее чем за 5 дней до вступления в силу.</p>
+        <h3>12. Контакты</h3>
+        <p>Оператор: ООО «Знание Медиа», ИНН 0000000000 (пример). Адрес для обращений по вопросам конфиденциальности: privacy@knowledge-info.example.</p>
+      </div>
+    </section>
+
+    </div>
+
+    <!-- САЙДБАР -->
+    <aside class="sidebar">
+      <div class="ad" style="height:300px;border:1px dashed #b9c3d6;border-radius:12px;display:flex;align-items:center;justify-content:center;color:#7a8699;font-size:13px">Реклама 300×250<br>РСЯ / AdSense</div>
+      <div class="card" style="margin-bottom:20px">
+        <h3>📬 Рассылка знаний</h3>
+        <p style="margin-bottom:12px">Раз в неделю — 3 интересные статьи. Без спама.</p>
+        <input type="email" placeholder="ваш@email.ru" style="width:100%;padding:10px;border:1px solid var(--line);border-radius:10px;margin-bottom:10px">
+        <button style="width:100%;padding:11px;border:0;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer">Подписаться</button>
+        <p style="font-size:12px;margin-top:10px">Подписываясь, вы принимаете <a href="#policy" style="color:var(--accent)">политику конфиденциальности</a>.</p>
+      </div>
+      <div class="card">
+        <h3>🔥 Популярное</h3>
+        <p>— Чёрные дыры: полный гайд<br>— Правило 50/30/20<br>— Кибергигиена за вечер<br>— 5 ужинов из 3 ингредиентов<br>— Как наладить сон</p>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <b style="color:#fff">Знание.info</b> — образовательный портал<br>
+      © 2026 Все права защищены
+    </div>
+    <div>
+      <a href="#science">Наука</a><a href="#life">Жизнь</a><a href="#money">Деньги</a>
+      <a href="#health">Здоровье</a><a href="#tech">Техника</a><a href="#policy">Конфиденциальность</a>
+    </div>
+  </div>
+</footer>
+
+<div class="cookie" id="cookie">
+  <span>🍪 Мы используем cookie для работы сайта и аналитики. Продолжая, вы соглашаетесь с <a href="#policy" style="color:#8ab4ff">политикой конфиденциальности</a>.</span>
+  <button onclick="document.getElementById('cookie').classList.add('hidden')">Принять</button>
+</div>
+
+<script>
+function doSearch(){
+  const q=document.getElementById('q').value.toLowerCase().trim();
+  document.querySelectorAll('.card').forEach(c=>{
+    const text=(c.dataset.title+' '+c.textContent).toLowerCase();
+    c.style.display = (!q || text.includes(q)) ? '' : 'none';
+  });
+  window.scrollTo({top:600,behavior:'smooth'});
+}
+document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter')doSearch();});
+function toggleMode(){
+  document.body.classList.toggle('dark');
+  document.querySelector('.dark')??document.body;
+  if(document.body.classList.contains('dark')) localStorage.setItem('theme','dark');
+  else localStorage.setItem('theme','light');
+}
+if(localStorage.getItem('theme')==='dark') document.body.classList.add('dark');
+</script>
+</body>
+</html>
